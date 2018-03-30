@@ -104,10 +104,10 @@
 
         <mat-form-field>
           <mat-select #state placeholder="State" formControlName="state" value="VA">
-            <mat-option value="VA">VA</mat-option>
-            <mat-option value="NY">NY</mat-option>
+            <mat-option value="Virginia">VA</mat-option>
+            <mat-option value="New York">NY</mat-option>
             <mat-option value="WV">WV</mat-option>
-            <mat-option value="CA">CA</mat-option>
+            <mat-option value="California">CA</mat-option>
             <mat-option value="WA">WA</mat-option>
           </mat-select>
           <mat-error *ngIf="form.get('state').hasError('required') && form.get('state').touched">
@@ -148,14 +148,27 @@
       <mat-expansion-panel *ngFor="let work of workHistory">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{work.employer.name}}
+            <mat-chip-list>
+              <mat-chip [color]="primary">{{work.start_date | year}}</mat-chip>
+            </mat-chip-list>
+            <div style="display:flex;">
+              <span style="align-self:center;">{{work.employer.name}}</span>
+            </div>
           </mat-panel-title>
           <mat-panel-description>
             {{work.position.name}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <span>{{work.start_date}}</span> - 
-        <span>{{work.end_date | isCurrent}}</span>
+        <div style="display:flex;">
+          <mat-icon style="align-self:center;">date_range</mat-icon>
+          <div style="align-self:center;">
+              {{work.start_date | date}} - {{work.end_date | isCurrent}}
+          </div>
+        </div>
+        <div style="display:flex;" *ngIf="work.description">
+          <mat-icon style="align-self:center;">info_outline</mat-icon>
+          <span style="align-self:center;">{{work.description}}</span>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>

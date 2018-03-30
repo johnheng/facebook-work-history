@@ -99,8 +99,8 @@ export class AppComponent implements OnInit {
             this.form.controls['lastName'].setValue(res.name.split(' ')[1]);
             this.form.controls['email'].setValue(res.email);
             this.form.controls['dateOfBirth'].setValue(res.birthday);
-            this.form.controls['city'].setValue(res.location.name.split(',')[0]);
-            this.form.controls['state'].setValue(res.location.name.split(',')[0]);
+            this.form.controls['city'].setValue(res.location.name.split(', ')[0]);
+            this.form.controls['state'].setValue(res.location.name.split(', ')[1]);
 
             this.workHistory = res.work;
           })

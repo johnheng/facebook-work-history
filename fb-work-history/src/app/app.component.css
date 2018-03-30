@@ -8,3 +8,11 @@ mat-card {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+span {
+    margin-left: 5px;
+}
+
+mat-icon {
+    margin-right: 5px;
+}
