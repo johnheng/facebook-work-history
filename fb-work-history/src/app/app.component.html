@@ -2,7 +2,8 @@
   <mat-card-header>
     <mat-card-title>Fill out your info!</mat-card-title>
     <mat-card-subtitle>
-      <button mat-button>Use your Facebook info</button>
+      <button mat-button (click)="getFbInfo()">Use your Facebook info</button>
+      <button mat-button (click)="logout()">Disconnect from Facebook</button>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -84,7 +85,8 @@
         <mat-form-field>
           <input matInput placeholder="Address line 1" formControlName="street1">
           <mat-error *ngIf="form.get('street1').hasError('required') && form.get('street1').touched">
-            Address is <strong>required</strong>
+            Address is
+            <strong>required</strong>
           </mat-error>
         </mat-form-field>
 
@@ -142,6 +144,20 @@
 
       </mat-card-content>
     </form>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let work of workHistory">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{work.employer.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{work.position.name}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <span>{{work.start_date}}</span> - 
+        <span>{{work.end_date | isCurrent}}</span>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>Submit</button>

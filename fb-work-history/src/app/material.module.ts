@@ -4,7 +4,8 @@ import {
     MatOptionModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule
 } from '@angular/material';
 
 
@@ -19,7 +20,8 @@ import { NgModule } from '@angular/core';
         MatOptionModule,
         MatInputModule,
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        MatExpansionModule
     ],
     exports: [
         MatFormFieldModule,
@@ -27,7 +29,8 @@ import { NgModule } from '@angular/core';
         MatOptionModule,
         MatInputModule,
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        MatExpansionModule
     ],
     providers: [],
     bootstrap: []
